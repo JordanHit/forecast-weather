@@ -1,16 +1,16 @@
 <template>
   <div class="app">
-    <NavBar></NavBar>
+    <SideBar></SideBar>
     <RouterView />
   </div>
 </template>
 
 <script>
-import NavBar from './components/NavBar.vue';
+import SideBar from './components/SideBar.vue';
 import { RouterLink, RouterView } from 'vue-router'
 export default {
     name: "App",
-    components: {NavBar},
+    components: {SideBar},
     data(){
         return{
             
@@ -24,20 +24,12 @@ export default {
 
 
 :root {
-  --primary: #dae1e7;
-  --blue: #142850;
-  --blue-light: #00909E;
-  --primary-dark: #a9acb4;
-  --blue-dark: #101f41;
-  --primary-bright: #e8f1f8;
-  --blue-bright: #193469;
-  --black: #1A1A1A;
-  --black-light: #262626;
-  --focus-element: #ededed;
-  --white: #ffffff;
-  --red: #c72929;
-  --red-black: #a42222;
-
+  --blue: #033043;
+  --dark: #121E31;
+  --skobeloff: #0A7273;
+  --white: #E9E3D5;
+  --yellow: #FDA521;
+  --dark-light: #22284F
 }
 
 *{
