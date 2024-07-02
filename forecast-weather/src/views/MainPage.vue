@@ -1,35 +1,52 @@
 <template>
-    <h1>lox</h1>
+  <main>
+    <img src="//cdn.weatherapi.com/weather/64x64/day/113.png" alt="">
+    <h1>dsfd</h1>
+  </main>
 </template>
 <script>
 export default {
-    name: 'MainPage',
-    data(){
-        return{
-            responseData: [],
-        }
-    },
-    mounted(){
-        this.getweatherNow()
-    },
-    methods:{
-        getweatherNow(){
-            this.$http.get(`https://api.openweathermap.org/data/2.5/weather?units=metric&q=Горки&appid=3b5862a364fe4969ed8947f60c67cf3e`)
-                .then((res) => {
-                    this.responseData = res.data
-                    console.log(this.responseData)
-                })
-                .catch((error) => {
-                    console.error(error)
-                });
-        }
+  name: 'MainPage',
+  data() {
+    return {
+      ipAddressData:[],
+      responseData: [],
     }
+  },
+  mounted() {
+    this.getIpAddress()
+  },
+  methods: {
+    getIpAddress(){
+      this.$http.get(`https://api.geoapify.com/v1/ipinfo?apiKey=d763ad9cb40348d186e5fc0447b3392f`)
+          .then((res) => {
+            this.ipAddressData = res.data
+            console.log(this.ipAddressData)
+            this.getWeatherNow(this.ipAddressData.location.latitude,this.ipAddressData.location.longitude)
+          })
+          .catch((error) => {
+            console.error(error)
+          });
+    },
+    getWeatherNow(lat,lon) {
+      this.$http.get(`api/current.json?key=0e2bd886eb124156bcc192102240107&q=${lat},${lon}&lang=ru`)
+          .then((res) => {
+            this.responseData = res.data
+            console.log(this.responseData)
+          })
+          .catch((error) => {
+            console.error(error)
+          });
+    }
+  }
 }
 </script>
 <style scoped>
-    h1{
-        width: 100%;
-        height: 100%;
+@import '../assets/css/bundle.css';
 
-    }
+h1 {
+  width: 100%;
+  height: 100%;
+
+}
 </style>

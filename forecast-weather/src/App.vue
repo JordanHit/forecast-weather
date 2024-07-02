@@ -1,21 +1,20 @@
 <template>
   <div class="app">
     <SideBar></SideBar>
-    <RouterView />
+    <RouterView/>
   </div>
 </template>
 
 <script>
 import SideBar from './components/SideBar.vue';
-import { RouterLink, RouterView } from 'vue-router'
+import {RouterLink, RouterView} from 'vue-router'
+
 export default {
-    name: "App",
-    components: {SideBar},
-    data(){
-        return{
-            
-        }
-    }
+  name: "App",
+  components: {SideBar},
+  data() {
+    return {}
+  }
 }
 </script>
 
@@ -32,7 +31,7 @@ export default {
   --dark-light: #22284F
 }
 
-*{
+* {
   top: 0;
   margin: 0;
   padding: 0;
